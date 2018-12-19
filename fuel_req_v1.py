@@ -31,6 +31,7 @@ def fuel_required_func():
     
     
 def print_variables():
+    print("\n=== VARIABLES ===")
     print(avg_lap_time)
     print(avg_fuel_used)
     print(race_duration)
@@ -52,5 +53,6 @@ def main():
     fuel_required_func()
     print_variables()
     print_results()
+
     
 main()
