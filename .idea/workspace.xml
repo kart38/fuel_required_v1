@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fuel_req_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
+            <state relative-caret-position="294">
+              <caret line="102" column="114" lean-forward="true" selection-start-line="102" selection-start-column="114" selection-end-line="102" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -123,7 +123,7 @@
   <component name="ToolWindowManager">
     <frame x="46" y="23" width="1234" height="777" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21560402" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22231543" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -147,8 +147,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fuel_req_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
+        <state relative-caret-position="294">
+          <caret line="102" column="114" lean-forward="true" selection-start-line="102" selection-start-column="114" selection-end-line="102" selection-end-column="114" />
         </state>
       </provider>
     </entry>

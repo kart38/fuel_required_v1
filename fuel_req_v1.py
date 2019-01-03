@@ -14,14 +14,23 @@ race_laps = 0
 fuel_required = 0
 race_type = ""
 est_laps = True
+fuel_tank_cap = 0
 # Variable go above here
 
 
 def user_inquiry():
-    global avg_lap_time, avg_fuel_used, race_duration, extra_laps
+    global avg_lap_time, avg_fuel_used, race_duration, extra_laps, fuel_tank_cap
     avg_lap_time = float(input("What is your average lap time?\n"))
     avg_fuel_used = float(input("What is your fuel used per lap?\n"))
+    fuel_tank_cap = int(input("How much fuel is allowed in full fuel tank?\n"))
     race_type_inquiry()
+
+
+def is_pit_required():
+    if fuel_required - fuel_tank_cap > 0:
+        return True
+    else:
+        return False
 
 
 def race_type_time():
@@ -73,6 +82,9 @@ def print_variables():
     print(extra_laps)
     print(race_laps)
     print(fuel_required)
+    print(fuel_tank_cap)
+    if is_pit_required():
+        print(fuel_required - fuel_tank_cap)
     
     
 def print_results():
@@ -83,8 +95,12 @@ def print_results():
     sample_laps_time()
     print("\n==== Fuel Information ====")
     print("Laps of Fuel:        {0}".format(int(race_laps + extra_laps)))
-    print("Fuel Required:       {0}".format(round(fuel_required, 3)))
     sample_laps_fuel()
+    print("Fuel Required:       {0}".format(round(fuel_required, 3)))
+    if is_pit_required():
+        print("Fuel to Add:         {0}".format(round(fuel_required - fuel_tank_cap, 3)))
+        print("Opening Stint Laps:  {0}".format(int(fuel_tank_cap / avg_fuel_used)))
+        print("Closing Stint Laps:  {0}".format(int(race_laps + extra_laps) - int(fuel_tank_cap / avg_fuel_used)))
     
     
 def sample_laps_time():
