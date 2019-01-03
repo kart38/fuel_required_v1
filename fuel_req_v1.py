@@ -6,6 +6,8 @@ Created on Sat Dec 15 19:26:25 2018
 @author: kart38
 """
 
+# TODO Format the time in results to look as expected: (H)H:mm:ss.xxx or (m)m:ss.xxx or ss.xxx
+
 avg_lap_time = 0
 avg_fuel_used = 0
 race_duration = 0
@@ -15,7 +17,7 @@ fuel_required = 0
 race_type = ""
 est_laps = True
 fuel_tank_cap = 0
-# Variable go above here
+# Variables go above here
 
 
 def user_inquiry():
