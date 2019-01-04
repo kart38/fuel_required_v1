@@ -5,6 +5,7 @@ Created on Sat Dec 15 19:26:25 2018
 
 @author: kart38
 """
+import time_format
 
 # TODO Format the time in results to look as expected: (H)H:mm:ss.xxx or (m)m:ss.xxx or ss.xxx
 
@@ -75,6 +76,35 @@ def fuel_required_lap():
     fuel_required = (race_laps + extra_laps) * avg_fuel_used
 
     
+def race_time(time_input):
+  h, m = divmod(time_input, 60)
+  s = ((m - int(m)) * 60)
+  h = str(int(h))
+  if int(time_input) >= 60:
+    if int(m) < 10:
+        m = (":0{0}".format(int(m)))
+    else:
+        m = (":{0}".format(int(m)))
+    if s < 10:
+        s = (":0{0}".format(round(s, 3)))
+    else:
+        s = (":{0}".format(round(s, 3)))
+    return (h + m + s)
+  else:
+    if int(m) < 10:
+        m = ("0{0}".format(int(m)))
+    else:
+        m = ("{0}".format(int(m)))
+    if s < 10:
+        s = (":0{0}".format(round(s, 3)))
+    else:
+        s = (":{0}".format(round(s, 3)))
+    if s == ":00":
+        return str(m) + " minutes"
+    else:
+        return (m + s)
+
+
 def print_variables():
     print("\n=== VARIABLES ===")
     print(race_type)
@@ -93,7 +123,7 @@ def print_results():
     print("\n==== Race Information ====")
     print("Race Type:           {0}".format(race_type))
     print("Race Laps:           {0}".format(int(race_laps)))
-    print("Race Duration:       {0}".format(round(race_duration, 2)))
+    print("Race Duration:       {0}".format(time_format.format_race_time(race_duration)))
     sample_laps_time()
     print("\n==== Fuel Information ====")
     print("Laps of Fuel:        {0}".format(int(race_laps + extra_laps)))
@@ -107,10 +137,10 @@ def print_results():
     
 def sample_laps_time():
     if est_laps:
-        print("Average Lap Time:    {0}".format(avg_lap_time))
+        print("Average Lap Time:    {0}".format(time_format.format_lap_time(avg_lap_time)))
         print("Sample Laps:         {0}".format("Time Estimated"))
     else:
-        print("Average Lap Time:    {0}".format(avg_lap_time))
+        print("Average Lap Time:    {0}".format(time_format.format_lap_time(avg_lap_time)))
         print("Sample Laps:         {0}".format("No variable yet"))
 
 
@@ -125,8 +155,8 @@ def sample_laps_fuel():
 
 def main():
     user_inquiry()
-    print_variables()
+    # print_variables()
     print_results()
 
-    
-main()
+if __name__ == '__main__':    
+    main()
