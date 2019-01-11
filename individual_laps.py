@@ -1,8 +1,8 @@
 lap_info = {}
 lap_times = []  # Probably doesn't need to be global
-avg_lap_time = 0
+indv_avg_lap_time = 0
 fuel_used = []
-avg_fuel_used = 0  # Probably doesn't need to be global
+indv_avg_fuel_used = 0  # Probably doesn't need to be global
 
 # lap_info [x] = {"lap_time": y, "fuel_used": z}
 
@@ -32,22 +32,28 @@ def show_laps():
 
 
 def average_lap_times():
-  global avg_lap_time
+  global indv_avg_lap_time
   for i in lap_info:
     lap_times.append(lap_info[i]["lap_time"])
-  avg_lap_time = sum(lap_times) / len(lap_times)
+  indv_avg_lap_time = sum(lap_times) / len(lap_times)
+  return indv_avg_lap_time
 
 
 def average_fuel_used():
-  global avg_fuel_used
+  global indv_avg_fuel_used
   for i in lap_info:
     fuel_used.append(lap_info[i]["fuel_used"])
-  avg_fuel_used = sum(fuel_used) / len(fuel_used)
+  indv_avg_fuel_used = sum(fuel_used) / len(fuel_used)
+  return indv_avg_fuel_used
 
 
 def show_averages():
-  print("Average lap time:  {0}".format(avg_lap_time))
-  print("Average fuel used: {0}".format(avg_fuel_used))
+  print("Average lap time:  {0}".format(indv_avg_lap_time))
+  print("Average fuel used: {0}".format(indv_avg_fuel_used))
+
+
+def lap_count():
+  return len(lap_info)
   
 
 if __name__ == '__main__':
